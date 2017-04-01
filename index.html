@@ -14,7 +14,10 @@
     <div class="main" ng-controller="MainController">
       <div class="container">
 
-        <h1>{{ title }}</h1>
+        <span>{{ title }}</span>
+        <p> {{ describe }} </p>
+        <button class="addNote">+</button>
+        <hr>
 
         <div ng-repeat="note in notes" class="col-md-6 notes"> 
   <div class="thumbnail"> 

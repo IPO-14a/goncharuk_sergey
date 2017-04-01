@@ -1,5 +1,6 @@
 app.controller('MainController', ['$scope', function($scope){
   $scope.title = 'Notebook';
+  $scope.describe = 'Notebook contains notes that user filled';
   $scope.notes = [ 
   { 
     title: 'Japan',  
