@@ -1,17 +1,43 @@
 <!doctype html>
-<html ng-app>
+<html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="Name" placeholder="Enter a name here">
-      <input type="text" ng-model="Sername" placeholder="Enter your sername here">
-      <hr>
-      <h1>Hello {{Name}}!</h1>
-      <h1>Your sername is {{Sername}}</h1>
+  <body ng-app="MYT">
+    <div class="header">
+      <div class="container">
+        <h1>MYT</h1>
+      </div>
     </div>
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+
+        <h1>{{ title }}</h1>
+
+        <div ng-repeat="note in notes" class="col-md-6 notes"> 
+  <div class="thumbnail"> 
+    <p class="title">{{ note.title }}</p> 
+    <p class="price">{{ note.pubdate | date }}</p> 
+    <p class="date">{{ note.text }}</p> 
+  </div> 
+</div>
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        
+      </div>
+    </div>
+
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
   </body>
 </html>
