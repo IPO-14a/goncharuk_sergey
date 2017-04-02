@@ -13,4 +13,13 @@ app.controller('MainController', ['$scope', function($scope){
     text: 'Web - developement is very huge area!'  
   } 
 ];
+  $scope.addNote = function(){
+      $scope.notes.push({
+          title: $scope.noteTitle,
+          text: $scope.noteText,
+          pubdate: new Date()
+      });
+      $scope.noteTitle = "";
+      $scope.noteText = "";
+  }    
 }]);
