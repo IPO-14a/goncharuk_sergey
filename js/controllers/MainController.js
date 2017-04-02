@@ -17,9 +17,14 @@ app.controller('MainController', ['$scope', function($scope){
       $scope.notes.push({
           title: $scope.noteTitle,
           text: $scope.noteText,
-          pubdate: new Date()
+          pubdate: date = new Date(),
+          pubday: day = date.getDay()
+          
       });
       $scope.noteTitle = "";
       $scope.noteText = "";
-  }    
+  }
+  $scope.delNote = function(index){
+    $scope.notes.splice(index, 1);
+  }
 }]);
