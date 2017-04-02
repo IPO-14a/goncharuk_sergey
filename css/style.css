@@ -4,3 +4,13 @@
 .addNote{
     font-size: 24px;
 }
+.title{
+    font-weight: bold;
+    font-size: 16px;
+}
+.text{
+    font-style: italic;
+}
+.btn-close{
+    float: right;
+}

@@ -35,11 +35,14 @@
 
         <div ng-repeat="note in notes" class="col-md-6 notes"> 
   <div class="thumbnail"> 
+      <button class="btn btn-danger btn-close" ng-click="delNote($index)">x</button>
     <p class="title">{{ note.title }}</p> 
-    <p class="price">{{ note.pubdate | date }}</p> 
-    <p class="date">{{ note.text }}</p>
+    <p class="pubdate">{{ note.pubdate | date }}</p>
+      
+      <hr>
+    <p class="text">{{ note.text }}</p>
       <p class="date">{{ note.pubday }}</p>
-      <button class="btn btn-danger" ng-click="delNote($index)">-</button>
+      
   </div> 
 </div>
 

@@ -18,7 +18,7 @@ app.controller('MainController', ['$scope', function($scope){
           title: $scope.noteTitle,
           text: $scope.noteText,
           pubdate: date = new Date(),
-          pubday: day = date.getDay()
+         // pubday: day = date.getDay()
           
       });
       $scope.noteTitle = "";
