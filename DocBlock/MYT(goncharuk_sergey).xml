@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
+<article>
+  <title>MYT(Goncharuk_Sergey)</title>
+  <articleinfo>
+    <abstract>
+      <title>Разрабатываемое ПО позволяет управлять личным временем путём создания заметок, списков дел, отслеживания заметок по карте. </title>
+      <para>AngularJS, IonicJS, Google Maps API, Bootstrap CSS</para>
+    </abstract>
+  </articleinfo>
+  <abstract>
+    <para>Функционал программы позволяет создавать, редактировать и удалять заметки, расписание, отметки на карте, приглашать друзей на мероприятия.</para>
+    <para>Экплуатационное назначение - управление личным временем и повседневными делами.</para>
+    <para>Потребность в разработке нового решения при существовании готовых продуктов, которые частично реализуют требования, описанные в ТЗ, обусловлено тем, что обычно предлагаемый функционал содержится одновременно в несколькиих программных продуктах. В большинстве случаев интерфейс подобного ПО не продуман и сделан &quot;на скорую руку&quot;.</para>
+  </abstract>
+  <abstract>
+    <title>Пример №1 - Добавление новой заметки</title>
+    <para>Пользователь добавляет новую заметку в записную книгу.</para>
+    <para>$scope.addNote = function(){
+      </para>
+    <para>$scope.notes.push({
+          </para>
+    <para>title: $scope.noteTitle,
+          </para>
+    <para>text: $scope.noteText,
+          </para>
+    <para>pubdate: date = new Date(),
+         </para>
+    <para>// pubday: day = date.getDay()
+          
+      </para>
+    <para>});
+      </para>
+    <para>$scope.noteTitle = &quot;&quot;;
+      </para>
+    <para>$scope.noteText = &quot;&quot;;
+  </para>
+    <para>}</para>
+    <para>&lt;form role=&quot;form&quot; class=&quot;form-inline&quot;&gt;
+        </para>
+    <para>&lt;div class=&quot;form-group&quot;&gt;
+        </para>
+    <para>&lt;label for=&quot;email&quot;&gt;Заголовок&lt;/label&gt;
+        </para>
+    <para>&lt;input type=&quot;text&quot; class=&quot;form-control&quot; ng-model=&quot;noteTitle&quot; placeholder=&quot;Введите заголовок&quot;&gt;
+        </para>
+    <para>&lt;/div&gt;
+        </para>
+    <para>&lt;div class=&quot;form-group&quot;&gt;
+        </para>
+    <para>&lt;label for=&quot;text&quot;&gt;Текст заметки&lt;/label&gt;
+        </para>
+    <para>&lt;input type=&quot;text&quot; class=&quot;form-control&quot; ng-model=&quot;noteText&quot; placeholder=&quot;Введите заметку&quot;&gt;
+        </para>
+    <para>&lt;/div&gt;
+        </para>
+    <para>&lt;button type=&quot;submit&quot; class=&quot;btn btn-success&quot; ng-click=&quot;addNote()&quot;&gt;+&lt;/button&gt;
+&lt;/form&gt;</para>
+  </abstract>
+  <abstract>
+    <title>Пример № 2 - Удаление существующей заметки</title>
+    <para>Пользователь удаляет существующую заметку из     записной книги.</para>
+    <para>$scope.delNote = function(index){
+    </para>
+    <para>$scope.notes.splice(index, 1);
+  </para>
+    <para>}</para>
+    <para>&lt;button class=&quot;btn btn-danger btn-close&quot; ng-click=&quot;delNote($index)&quot;&gt;x&lt;/button&gt;</para>
+  </abstract>
+  <abstract>
+    <title>Пример № 3 - Вывод добавленных заметок</title>
+    <para>Пользователь просматривает добавленные в записную книгу заметки.</para>
+    <para>$scope.title = &apos;Notebook&apos;;
+  </para>
+    <para>$scope.describe = &apos;Notebook contains notes that user filled&apos;;
+  </para>
+    <para>$scope.notes = [ 
+  { 
+    </para>
+    <para>title: &apos;Japan&apos;,  
+    </para>
+    <para>pubdate: new Date(&apos;2017&apos;, &apos;03&apos;, &apos;01&apos;), 
+    </para>
+    <para>text: &apos;I`ve become the greatest gaijin in Japan!&apos; 
+  </para>
+    <para>}, 
+  </para>
+    <para>{ 
+    title: &apos;Web developer&apos;,  
+    </para>
+    <para>pubdate: new Date(&apos;2017&apos;, &apos;02&apos;, &apos;30&apos;), 
+    </para>
+    <para>text: &apos;Web - developement is very huge area!&apos;  
+  </para>
+    <para>} 
+];</para>
+    <para>&lt;div ng-repeat=&quot;note in notes&quot; class=&quot;col-md-6 notes&quot;&gt; 
+  </para>
+    <para>&lt;div class=&quot;thumbnail&quot;&gt; 
+      </para>
+    <para>&lt;button class=&quot;btn btn-danger btn-close&quot; ng-click=&quot;delNote($index)&quot;&gt;x&lt;/button&gt;
+    </para>
+    <para>&lt;p class=&quot;title&quot;&gt;{{ note.title }}&lt;/p&gt; 
+    </para>
+    <para>&lt;p class=&quot;pubdate&quot;&gt;{{ note.pubdate | date }}&lt;/p&gt;
+      
+      </para>
+    <para>&lt;hr&gt;
+    </para>
+    <para>&lt;p class=&quot;text&quot;&gt;{{ note.text }}&lt;/p&gt;
+      </para>
+    <para>&lt;p class=&quot;date&quot;&gt;{{ note.pubday }}&lt;/p&gt;
+      
+  </para>
+    <para>&lt;/div&gt; 
+</para>
+    <para>&lt;/div&gt;</para>
+  </abstract>
+</article>
