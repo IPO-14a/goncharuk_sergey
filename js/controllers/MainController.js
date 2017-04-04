@@ -64,4 +64,8 @@ app.controller('MainController', ['$scope', function($scope){
   $scope.delNote = function(index){
     $scope.notes.splice(index, 1);
   }
+  $scope.clearNotes = function() {
+    var notes_length = $scope.notes.length;
+    $scope.notes.splice(0, notes_length);
+  }
 }]);
