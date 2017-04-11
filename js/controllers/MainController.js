@@ -11,21 +11,19 @@
 * $scope передаёт объекты на VIEW (В объектах могут быть
 * как свойства так и методы).
 */
-app.controller('MainController', ['$scope', function($scope){
-  $scope.title = 'Notebook';
-  $scope.describe = 'Notebook contains notes that user filled';
-  $scope.notes = [ 
-  { 
-    title: 'Japan',  
-    pubdate: new Date('2017', '03', '01'), 
-    text: 'I`ve become the greatest gaijin in Japan!' 
-  }, 
-  { 
-    title: 'Web developer',  
-    pubdate: new Date('2017', '02', '30'), 
-    text: 'Web - developement is very huge area!'  
-  } 
-];
+app.controller('MainController', ['$scope', function( $scope ) {
+    $scope.title = 'Notebook';
+    $scope.describe = 'Notebook contains notes that user filled';
+    $scope.notes = [{ 
+        title: 'Japan',  
+        pubdate: new Date('2017', '03', '01'), 
+        text: 'I`ve become the greatest gaijin in Japan!' 
+      },                 
+      { 
+        title: 'Web developer',  
+        pubdate: new Date('2017', '02', '30'), 
+        text: 'Web - developement is very huge area!'  
+  }];
 /**
 * Обработчик вызова функции addNote() путём клика
 * по кнопке, к которой привязана директива
@@ -38,16 +36,15 @@ app.controller('MainController', ['$scope', function($scope){
 * массив текущую дату.
 *
 */
-  $scope.addNote = function(){
-      $scope.notes.push({
-          title: $scope.noteTitle,
-          text: $scope.noteText,
-          pubdate: date = new Date(),
-         // pubday: day = date.getDay()
-          
+$scope.addNote = function() {
+    $scope.notes.push({
+        title: $scope.noteTitle,
+        text: $scope.noteText,
+        pubdate: date = new Date(),
+        // pubday: day = date.getDay()  
       });
-      $scope.noteTitle = "";
-      $scope.noteText = "";
+    $scope.noteTitle = "";
+    $scope.noteText = "";
   }
 /**
 * Обработчик вызова функции delNote() путём клика
@@ -61,11 +58,11 @@ app.controller('MainController', ['$scope', function($scope){
 * при помощи директивы ng-model 
 *
 */
-  $scope.delNote = function(index){
+$scope.delNote = function(index) {
     $scope.notes.splice(index, 1);
   }
-  $scope.clearNotes = function() {
-    var notes_length = $scope.notes.length;
-    $scope.notes.splice(0, notes_length);
-  }
+$scope.clearNotes = function() {
+    var notesLength = $scope.notes.length;
+    $scope.notes.splice(0, notesLength);
+}
 }]);
